@@ -1,7 +1,7 @@
 # CplusplusNote
 
 ## Description
-This repo aims to keep record of what I do not know before learning C++ from [learncpp.com](learncpp.com).
+This repo aims to keep record of what I do not know before learning C++ from [learncpp.com](https://learncpp.com).
 
 ## Basics
 1. list initialization is preferred over copy and direct initialization.
