@@ -21,3 +21,26 @@ cout << "hello world" << '\n'; // note the single quote around \n
 - reason: assuming we want to get an integer, we will get 123 from the input of "123abc"
 
   
+## Function and Files
+1. If I have a function called "foo" in a.cpp, and want to use it in b.cpp(assume two files are in the same directory), all I need to do is to add forward declaration of foo in b.cpp. For **better practice**, create a header file and include it instead.
+- reason: write a header file can gather all the function header, so you would not need to add multiple declaration in b.cpp
+3. Only declaration and definition are allowed in global namesapce. However, usage of **global variable** is strongly discouraged.
+4. Avoid "using namespace std;" at all cost.
+- reason: it violated the intention of namespace, and can cause bug like this (copied from the site):
+```
+#include <iostream> // imports the declaration of std::cout
+
+using namespace std; // makes std::cout accessible as "cout"
+
+int cout() // defines our own "cout" function in the global namespace
+{
+    return 5;
+}
+
+int main()
+{
+    cout << "Hello, world!"; // Compile error!  Which cout do we want here?  The one in the std namespace or the one we defined above?
+
+    return 0;
+}
+```
