@@ -1,4 +1,4 @@
-# CplusplusNote (Last Update: 1/14)
+# CplusplusNote (Last Update: 1/15)
 
 ## Description
 This repo aims to keep record of what I do not know before learning C++ from [learncpp.com](https://learncpp.com).
