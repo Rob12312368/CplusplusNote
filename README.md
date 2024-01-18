@@ -1,4 +1,4 @@
-# CplusplusNote (Last Update: 1/15)
+# CplusplusNote (Last Update: 1/17)
 
 ## Description
 This repo aims to keep record of what I do not know before learning C++ from [learncpp.com](https://learncpp.com).
@@ -114,5 +114,42 @@ int main()
 	std::cout << "You entered: " << x << '\n';
 
 	return 0;
+}
+```
+## Fundamental Data Types
+1. C++ does specify the minimum size for datatypes, but not for the maximum size. Therefore, int can be 2 bytes or 4 bytes on different machines. It is best to refer to the C++ standard and assume the most limited range for a datatype if the goal is to write a cross-platform program.
+2. For better practice, initialize datatypes like the following:
+```
+int x{5};      // 5 means integer
+double y{5.0}; // 5.0 is a floating point literal (no suffix means double type by default)
+float z{5.0f}; // 5.0 is a floating point literal, f suffix means float type
+```
+3. cout only outputs 6 significant digits, so we can use `setprecision` to make the output more precise. Note that `setprecision` is sticky, which means it only has to be set once unless we want to change it.
+```
+#include <iomanip> // for output manipulator std::setprecision()
+#include <iostream>
+
+int main()
+{
+    std::cout << std::setprecision(17); // show 17 digits of precision
+    std::cout << 3.33333333333333333333333333333333333333f <<'\n'; // f suffix means float
+    std::cout << 3.33333333333333333333333333333333333333 << '\n'; // no suffix means double
+
+    return 0;
+}
+```
+4. Rounding error happens all the time! The way decimal number is stored in the computer is just an approximation, which means we should never assume it is 100% accurate.
+```
+#include <iomanip> // for std::setprecision()
+#include <iostream>
+
+int main()
+{
+    double d{0.1};
+    std::cout << d << '\n'; // use default cout precision of 6
+    std::cout << std::setprecision(17);
+    std::cout << d << '\n';
+
+    return 0;
 }
 ```
